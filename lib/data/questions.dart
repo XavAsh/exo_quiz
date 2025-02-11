@@ -65,5 +65,5 @@ final List<Question> questions = [
       response: true,
       explanation:
           "La Tesla Model S Plaid fait le 0-100 km/h en environ 2,1s, plus rapide que la Bugatti Chiron (2,4s).",
-      imagePath: 'tesla_vs_bugatti.jpg'),
+      imagePath: 'assets/tesla_vs_bugatti.jpg'),
 ];

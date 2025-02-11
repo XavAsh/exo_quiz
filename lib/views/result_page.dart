@@ -22,9 +22,12 @@ class ResultScreen extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           if (correctAnswers <= 4)
-            Image.asset(
-              'assets/sad.jpg',
-              width: 300,
+            ClipRRect(
+              borderRadius: BorderRadius.circular(15.0),
+              child: Image.asset(
+                'assets/sad.jpg',
+                width: 300,
+              ),
             )
           else
             ClipRRect(

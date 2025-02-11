@@ -9,14 +9,18 @@ class QuestionWidget extends StatefulWidget {
       {super.key, required this.question, required this.onAnswer});
 
   @override
-  _QuestionWidgetState createState() => _QuestionWidgetState();
+  QuestionWidgetState createState() => QuestionWidgetState();
 }
 
-class _QuestionWidgetState extends State<QuestionWidget> {
+class QuestionWidgetState extends State<QuestionWidget> {
+  Color? _trueButtonColor;
+  Color? _falseButtonColor;
+
   void _showExplanationDialog(
-      String explanation, String response, bool answer) {
+      String explanation, bool answer, String response, bool isCorrect) {
     showDialog(
       context: context,
+      barrierDismissible: false,
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text('Explication'),
@@ -25,12 +29,13 @@ class _QuestionWidgetState extends State<QuestionWidget> {
             children: [
               Text(explanation),
               const SizedBox(height: 10),
-              Text('réponse: ${response == 'true' ? 'vrai' : 'faux'}'),
+              Text(response),
+              const SizedBox(height: 10),
             ],
           ),
           actions: <Widget>[
             TextButton(
-              child: const Text('Wouaw trop cooool'),
+              child: const Text('Woauw! trop coul!'),
               onPressed: () {
                 Navigator.of(context).pop();
                 widget.onAnswer(answer);
@@ -43,8 +48,12 @@ class _QuestionWidgetState extends State<QuestionWidget> {
   }
 
   void _handleAnswer(bool answer) {
-    _showExplanationDialog(widget.question.explanation,
-        widget.question.response.toString(), answer);
+    bool isCorrect = (answer == widget.question.response);
+    _showExplanationDialog(
+        widget.question.explanation,
+        answer,
+        isCorrect ? 'Votre reponse est correct' : 'Votre reponse est incorrect',
+        isCorrect);
   }
 
   @override
@@ -56,30 +65,21 @@ class _QuestionWidgetState extends State<QuestionWidget> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(15.0),
-              child: Image.asset(
-                height: 200,
-                width: double.infinity,
-                widget.question.imagePath,
-                fit: BoxFit.cover,
-              ),
-            ),
-            SizedBox(
-              height: 150,
-              child: Text(
-                widget.question.question,
-                style:
-                    const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
+            Image.asset(widget.question.imagePath),
+            const SizedBox(height: 10),
+            Text(
+              widget.question.question,
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
             ListTile(
               title: const Text('Vrai'),
+              tileColor: _trueButtonColor,
               onTap: () => _handleAnswer(true),
             ),
             ListTile(
               title: const Text('Faux'),
+              tileColor: _falseButtonColor,
               onTap: () => _handleAnswer(false),
             ),
           ],

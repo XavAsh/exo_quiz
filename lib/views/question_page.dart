@@ -35,14 +35,9 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
       appBar: AppBar(
         title: Text('Score: $_correctAnswers'),
       ),
-      body: Column(
-        children: [
-          Text('Question ${_currentQuestionIndex + 1} of ${questions.length}'),
-          QuestionWidget(
-            question: questions[_currentQuestionIndex],
-            onAnswer: _answerQuestion,
-          ),
-        ],
+      body: QuestionWidget(
+        question: questions[_currentQuestionIndex],
+        onAnswer: _answerQuestion,
       ),
     );
   }
