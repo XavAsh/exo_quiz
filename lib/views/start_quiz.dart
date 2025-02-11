@@ -8,9 +8,12 @@ class StartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Column(mainAxisSize: MainAxisSize.min, children: [
-        Image.asset(
-          'assets/yes.png',
-          width: 300,
+        ClipRRect(
+          borderRadius: BorderRadius.circular(15.0),
+          child: Image.asset(
+            'assets/yes.png',
+            width: 300,
+          ),
         ),
         const SizedBox(
           height: 30,

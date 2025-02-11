@@ -1,16 +1,21 @@
 # exo_quiz
 
-A new Flutter project.
+Un nouveau projet Flutter.
 
-## Getting Started
+## Structure du projet
 
-This project is a starting point for a Flutter application.
+Voici la structure du projet et une brève description de chaque répertoire et fichier important :
 
-A few resources to get you started if this is your first Flutter project:
+- `.gitignore` : Fichier pour spécifier les fichiers et répertoires à ignorer par Git.
+- `assets/` : Répertoire pour les ressources telles que les images.
+- `lib/` : Répertoire contenant le code source Dart de l'application.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Comment démarrer
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Pour commencer avec ce projet Flutter, suivez les étapes ci-dessous :
+
+1. Assurez-vous d'avoir Flutter installé sur votre machine. Vous pouvez suivre les instructions d'installation sur le site officiel de Flutter : [flutter.dev](https://flutter.dev).
+2. Clonez ce dépôt sur votre machine locale :
+   ```sh
+   git clone <URL_DU_DEPOT>
+   ```

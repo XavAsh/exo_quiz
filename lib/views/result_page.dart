@@ -27,9 +27,12 @@ class ResultScreen extends StatelessWidget {
               width: 300,
             )
           else
-            Image.asset(
-              'assets/happy.gif',
-              width: 300,
+            ClipRRect(
+              borderRadius: BorderRadius.circular(15.0),
+              child: Image.asset(
+                'assets/happy.gif',
+                width: 300,
+              ),
             ),
           Text(
             'Tu a répondu a $correctAnswers sur ${questions.length} questions correctement!',
