@@ -1,21 +1,18 @@
-# exo_quiz
+📘 Quiz automobile 🏎️
+Une application Flutter interactive proposant un quiz sur les voitures.
 
-Un nouveau projet Flutter.
+🚀 Fonctionnalités
+📸 Affichage d'une image par question
+✅ Vérification des réponses avec une explication
+🏆 Affichage du score à la fin
+🛠️ Installation
 
-## Structure du projet
+Clone ce repo :
+git clone https://github.com/xavash/exo_quiz.git
 
-Voici la structure du projet et une brève description de chaque répertoire et fichier important :
+Installe les dépendances :
+flutter pub get
 
-- `.gitignore` : Fichier pour spécifier les fichiers et répertoires à ignorer par Git.
-- `assets/` : Répertoire pour les ressources telles que les images.
-- `lib/` : Répertoire contenant le code source Dart de l'application.
-
-## Comment démarrer
-
-Pour commencer avec ce projet Flutter, suivez les étapes ci-dessous :
-
-1. Assurez-vous d'avoir Flutter installé sur votre machine. Vous pouvez suivre les instructions d'installation sur le site officiel de Flutter : [flutter.dev](https://flutter.dev).
-2. Clonez ce dépôt sur votre machine locale :
-   ```sh
-   git clone <URL_DU_DEPOT>
-   ```
+Lance l'application :
+flutter run
+👨‍💻 Développé par Xavier ASHTON
