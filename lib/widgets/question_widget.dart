@@ -9,10 +9,10 @@ class QuestionWidget extends StatefulWidget {
       {super.key, required this.question, required this.onAnswer});
 
   @override
-  QuestionWidgetState createState() => QuestionWidgetState();
+  _QuestionWidgetState createState() => _QuestionWidgetState();
 }
 
-class QuestionWidgetState extends State<QuestionWidget> {
+class _QuestionWidgetState extends State<QuestionWidget> {
   Color? _trueButtonColor;
   Color? _falseButtonColor;
 
@@ -49,10 +49,13 @@ class QuestionWidgetState extends State<QuestionWidget> {
 
   void _handleAnswer(bool answer) {
     bool isCorrect = (answer == widget.question.response);
+
     _showExplanationDialog(
         widget.question.explanation,
         answer,
-        isCorrect ? 'Votre reponse est correct' : 'Votre reponse est incorrect',
+        isCorrect
+            ? 'Votre réponse est correcte'
+            : 'Votre réponse est incorrecte',
         isCorrect);
   }
 

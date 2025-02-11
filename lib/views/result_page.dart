@@ -1,21 +1,14 @@
 import 'package:flutter/material.dart';
-import '../data/questions.dart';
 
 class ResultScreen extends StatelessWidget {
-  final List<bool> chosenAnswers;
-  final void Function() onRestart;
-
-  const ResultScreen(
-      {super.key, required this.chosenAnswers, required this.onRestart});
+  const ResultScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    int correctAnswers = 0;
-    for (int i = 0; i < chosenAnswers.length; i++) {
-      if (chosenAnswers[i] == questions[i].response) {
-        correctAnswers++;
-      }
-    }
+    final Map<String, Object> args =
+        ModalRoute.of(context)!.settings.arguments as Map<String, Object>;
+    final int correctAnswers = args['correctAnswers'] as int;
+    final int totalQuestions = args['totalQuestions'] as int;
 
     return Center(
       child: Column(
@@ -38,12 +31,15 @@ class ResultScreen extends StatelessWidget {
               ),
             ),
           Text(
-            'Tu a répondu a $correctAnswers sur ${questions.length} questions correctement!',
+            'Tu as répondu à $correctAnswers sur $totalQuestions questions correctement!',
             style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 20),
           ElevatedButton(
-            onPressed: onRestart,
+            onPressed: () {
+              Navigator.pushNamedAndRemoveUntil(
+                  context, '/', (Route<dynamic> route) => false);
+            },
             child: const Text('Recommencer'),
           ),
         ],
